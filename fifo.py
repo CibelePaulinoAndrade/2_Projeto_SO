@@ -9,7 +9,10 @@ deslocamentos = [abs(inicial - int(entrada[0]))]
 deslocamentosN = deslocamentos[-1]
 tempoDesloc = deslocamentos[-1] * time
 
+ordem = []
+
 for i in range(len(entrada) - 1):
+	ordem.append(entrada[i])
 	deslocamentos.append(abs(int(entrada[i]) - int(entrada[i + 1])))
 	deslocamentosN += deslocamentos[-1]
 	tempoDesloc += deslocamentos[-1] * time
@@ -22,6 +25,8 @@ vat = variancia(deslocamentos, mediaTempoDesloc, time)
 
 arq = open('testealg.txt', 'w')
 texto = "FIFO"+"\n"+"Deslocamentos: "+ str(deslocamentosN)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTempoDesloc)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))
+arq.write(texto)
+texto = "Sequencia de Acesso: FIFO"+"\n" + str(ordem)+"\n\n"
 arq.write(texto)
 arq.close()
 

@@ -11,7 +11,10 @@ def FIFO(inicio, time):
 	deslocamentosN = deslocamentos[-1]
 	tempoDesloc = deslocamentos[-1] * time
 
+	ordem = []
+
 	for i in range(len(entrada) - 1):
+		ordem.append(entrada[i])
 		deslocamentos.append(abs(int(entrada[i]) - int(entrada[i + 1])))
 		deslocamentosN += deslocamentos[-1]
 		tempoDesloc += deslocamentos[-1] * time
@@ -30,6 +33,8 @@ def FIFO(inicio, time):
 	arq.write(texto)
 	texto = "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" +"Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 	arq.write(texto)
+	texto = "Sequencia de Acesso: FIFO"+"\n" + str(ordem)+"\n\n"
+	arq.write(texto)
 
 def SSF(inicio, time):
 
@@ -41,8 +46,10 @@ def SSF(inicio, time):
 	ndesloc = 0
 	tempodesloc = 0
 	tamentrada = len(entrada) - 1
+	ordem = []
 	while len(entrada) > 1:
 		ni = prox(entrada, i)
+		ordem.append(entrada[ni])
 		deslocamentos.append(abs(entrada[i] - entrada[ni]))
 		ndesloc += deslocamentos[-1]
 		tempodesloc += deslocamentos[-1] * time
@@ -64,6 +71,8 @@ def SSF(inicio, time):
 	texto = "Tempo medio de deslocamentos: "+ str(mediaTempoDesloc)+"\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
 	arq.write(texto)
 	texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
+	arq.write(texto)
+	texto = "Sequencia de Acesso: SSF"+"\n" + str(ordem)+"\n\n"
 	arq.write(texto)
 
 def SCAN(inicio, time):
@@ -103,6 +112,9 @@ def SCAN(inicio, time):
 		arq.write(texto)
 		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 		arq.write(texto)
+		ordem = ida[3] + volta[3]
+		texto = "Sequencia de Acesso: SCANF"+"\n" + str(ordem)+"\n\n"
+		arq.write(texto)
 
 	elif maisproximo < inicio:
 		total = inicio - entrada[maisproximo]
@@ -130,6 +142,9 @@ def SCAN(inicio, time):
 		texto = "Tempo medio de deslocamentos: "+ str(mediaTime)+ "\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
 		arq.write(texto)
 		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
+		arq.write(texto)
+		ordem = ida[3] + volta[3]
+		texto = "Sequencia de Acesso: SCANF"+"\n" + str(ordem)+"\n\n"
 		arq.write(texto)
 
 def SCANC(inicio, time):
@@ -169,6 +184,9 @@ def SCANC(inicio, time):
 		arq.write(texto)
 		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 		arq.write(texto)
+		ordem = ida[3] + volta[3]
+		texto = "Sequencia de Acesso: SCANF-C"+"\n" + str(ordem)+"\n\n"
+		arq.write(texto)
 
 	elif maisproximo < inicio:
 		total = inicio - entrada[maisproximo]
@@ -189,7 +207,6 @@ def SCANC(inicio, time):
 		timelist += ida[0] + [abs(entrada[len(entrada)-1] - entrada[0])*time]+ volta[0]
 		vat = variancia(timelist, mediaTime, time)
 
-		
 		texto = "SCAN-C"+"\n"+"Quantidade de deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"
 		arq.write(texto)
 		texto = "Variancia Deslocamentos: "+ str(va)+"\n" + "Desvio Padrao Deslocamentos: "+ str(math.sqrt(va))+"\n"
@@ -197,6 +214,9 @@ def SCANC(inicio, time):
 		texto = "Tempo medio de deslocamentos: "+ str(mediaTime)+"\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
 		arq.write(texto)
 		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
+		arq.write(texto)
+		ordem = ida[3] + volta[3]
+		texto = "Sequencia de Acesso: SCANF-C"+"\n" + str(ordem)+"\n\n"
 		arq.write(texto)
 
 inicio = int(input("inicio: "))

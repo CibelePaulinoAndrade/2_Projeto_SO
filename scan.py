@@ -33,8 +33,10 @@ if maisproximo > inicio:
 	timelist += ida[0] + [abs(entrada[-1] - entrada[maisproximo - 1])*time] + volta[0]
 	vat = variancia(timelist, mediaTime, time)
 
+	ordem = ida[3] + volta[3]
 	texto = "SCAN"+"\n"+"Deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTime)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))
-
+	arq.write(texto)
+	texto = "Sequencia de Acesso: SCANF"+"\n" + str(ordem)+"\n\n"
 	arq.write(texto)
 	arq.close()
 
@@ -58,9 +60,10 @@ elif maisproximo < inicio:
 	timelist += ida[0] + [abs(entrada[0] - entrada[maisproximo + 1])*time]+ volta[0]
 	vat = variancia(timelist, mediaTime, time)
 
-	
+	ordem = ida[3]+ volta[3]
 	texto = "SCAN"+"\n"+"Deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTime)+ "\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))
-
+	arq.write(texto)
+	texto = "Sequencia de Acesso: SCANF"+"\n" + str(ordem)+"\n\n"
 	arq.write(texto)
 	arq.close()
 
