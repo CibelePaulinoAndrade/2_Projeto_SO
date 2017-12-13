@@ -1,27 +1,27 @@
 FIFO
-Deslocamentos: 339400
+Quantidade de deslocamentos: 339400
 Media Deslocamentos: 3394
-Variancia: 5943095
-Desvio: 2437.84638564
-Media Time: 3394
-Variancia Time: 5943095
-Desvio Time: 2437.84638564
+Variancia Deslocamentos: 5943095
+Desvio Padrao Deslocamentos: 2437.84638564
+Tempo medio de deslocamentos: 3394
+Variancia do Tempo de Deslocamento: 5943095
+Desvio Padrao do Tempo de Deslocamento: 2437.84638564
 
 SSF
-Deslocamentos: 12933
+Quantidade de deslocamentos: 12933
 Media Deslocamentos: 129.33
-Variancia: 98525.5768687
-Desvio: 313.887841225
-Media Time: 129.33
-Variancia Time: 98525.5768687
-Desvio Time: 313.887841225
+Variancia Deslocamentos: 98525.5768687
+Desvio Padrao Deslocamentos: 313.887841225
+Tempo medio de deslocamentos: 129.33
+Variancia do Tempo de Deslocamento: 98525.5768687
+Desvio Padrao do Tempo de Deslocamento: 313.887841225
 
 SCAN
-Deslocamentos: 12933
+Quantidade de deslocamentos: 12933
 Media Deslocamentos: 129.33
-Variancia: 98525.5768687
-Desvio: 313.887841225
-Media Time: 129.33
-Variancia Time: 98525.5768687
-Desvio Time: 313.887841225
+Variancia Deslocamentos: 98525.5768687
+Desvio Padrao Deslocamentos: 313.887841225
+Tempo medio de deslocamentos: 129.33
+Variancia do Tempo de Deslocamento: 98525.5768687
+Desvio Padrao do Tempo de Deslocamento: 313.887841225
 

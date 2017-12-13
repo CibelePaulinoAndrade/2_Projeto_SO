@@ -22,7 +22,13 @@ def FIFO(inicio, time):
 	va = variancia(deslocamentos, mediaDesloc)
 	vat = variancia(deslocamentos, mediaTempoDesloc, time)
 
-	texto = "FIFO"+"\n"+"Deslocamentos: "+ str(deslocamentosN)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTempoDesloc)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))+"\n\n"
+	texto = "FIFO"+"\n"+"Quantidade de deslocamentos: "+ str(deslocamentosN)+"\n"
+	arq.write(texto)
+	texto = "Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia Deslocamentos: "+ str(va)+"\n" 
+	arq.write(texto)
+	texto = "Desvio Padrao Deslocamentos: "+ str(math.sqrt(va))+"\n"+ "Tempo medio de deslocamentos: "+ str(mediaTempoDesloc)+"\n"
+	arq.write(texto)
+	texto = "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" +"Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 	arq.write(texto)
 
 def SSF(inicio, time):
@@ -52,7 +58,13 @@ def SSF(inicio, time):
 
 	vat = variancia(deslocamentos, mediaTempoDesloc, time)
 
-	texto = "SSF"+"\n"+"Deslocamentos: "+ str(ndesloc)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTempoDesloc)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))+"\n\n"
+	texto = "SSF"+"\n"+"Quantidade de deslocamentos: "+ str(ndesloc)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"
+	arq.write(texto)
+	texto = "Variancia Deslocamentos: "+ str(va)+"\n" + "Desvio Padrao Deslocamentos: "+ str(math.sqrt(va))+"\n"
+	arq.write(texto)
+	texto = "Tempo medio de deslocamentos: "+ str(mediaTempoDesloc)+"\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
+	arq.write(texto)
+	texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 	arq.write(texto)
 
 def SCAN(inicio, time):
@@ -93,7 +105,13 @@ def SCAN(inicio, time):
 		timelist += ida[0] + [abs(entrada[-1] - entrada[maisproximo - 1])*time] + volta[0]
 		vat = variancia(timelist, mediaTime, time)
 
-		texto = "SCAN"+"\n"+"Deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTime)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))+"\\n\n"
+		texto = "SCAN"+"\n"+"Quantidade de deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"
+		arq.write(texto)
+		texto = "Variancia Deslocamentos: "+ str(va)+"\n" + "Desvio Padrao Deslocamentos: "+ str(math.sqrt(va))+"\n"
+		arq.write(texto)
+		texto = "Tempo medio de deslocamentos: "+ str(mediaTime)+"\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
+		arq.write(texto)
+		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\\n\n"
 		arq.write(texto)
 
 	elif maisproximo < inicio:
@@ -115,7 +133,13 @@ def SCAN(inicio, time):
 		timelist += ida[0] + [abs(entrada[0] - entrada[maisproximo + 1])*time]+ volta[0]
 		vat = variancia(timelist, mediaTime, time)
 		
-		texto = "SCAN"+"\n"+"Deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTime)+ "\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))+"\n\n"
+		texto = "SCAN"+"\n"+"Quantidade de deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"
+		arq.write(texto)
+		texto = "Variancia Deslocamentos: "+ str(va)+"\n" + "Desvio Padrao Deslocamentos: "+ str(math.sqrt(va))+"\n"
+		arq.write(texto)
+		texto = "Tempo medio de deslocamentos: "+ str(mediaTime)+ "\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
+		arq.write(texto)
+		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 		arq.write(texto)
 
 inicio = int(input("inicio: "))
