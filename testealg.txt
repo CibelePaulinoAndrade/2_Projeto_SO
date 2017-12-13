@@ -1,0 +1,18 @@
+FIFO
+Deslocamentos: 339400
+Media Deslocamentos: 3394
+Variancia: 5943095
+Desvio: 2437.84638564
+Media Time: 3394
+Variancia Time: 5943095
+Desvio Time: 2437.84638564
+
+SSF
+Deslocamentos: 12933
+Media Deslocamentos: 129.33
+Variancia: 98525.5768687
+Desvio: 313.887841225
+Media Time: 129.33
+Variancia Time: 98525.5768687
+Desvio Time: 313.887841225
+

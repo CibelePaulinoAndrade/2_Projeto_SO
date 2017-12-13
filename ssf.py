@@ -28,10 +28,16 @@ va = variancia(deslocamentos, mediaDesloc)
 
 vat = variancia(deslocamentos, mediaTempoDesloc, time)
 
-print "Desloc: ", ndesloc 
-print "Media Desloc", mediaDesloc 
-print "Media time desloc", mediaTempoDesloc
-print "Variancia", va
-print "Desvio", math.sqrt(va)
-print "VarianciaTIme ", vat
-print "Desvio Time", math.sqrt(vat)
+arq = open('testealg.txt', 'w')
+texto = "SSF"+"\n"+"Deslocamentos: "+ str(ndesloc)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTempoDesloc)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))
+
+arq.write(texto)
+arq.close()
+
+##print "Desloc: ", ndesloc 
+##print "Media Desloc", mediaDesloc 
+##print "Media time desloc", mediaTempoDesloc
+##print "Variancia", va
+##print "Desvio", math.sqrt(va)
+##print "VarianciaTIme ", vat
+##print "Desvio Time", math.sqrt(vat)

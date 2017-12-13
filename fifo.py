@@ -2,12 +2,8 @@ import math
 from general import *
 
 inicial = int(input("inicio: "))
-time = input("seek: ")
-f = open("ACESSOS_100.TXT", "r")
-entrada = []
-for line in f:
-	entrada += line.split("-")
-entrada.pop(-1)
+time = int(input("time: "))
+entrada = ler()
 
 deslocamentos = [abs(inicial - int(entrada[0]))] 
 deslocamentosN = deslocamentos[-1]
@@ -24,12 +20,9 @@ mediaTempoDesloc = tempoDesloc/len(entrada)
 va = variancia(deslocamentos, mediaDesloc)
 vat = variancia(deslocamentos, mediaTempoDesloc, time)
 
+arq = open('testealg.txt', 'w')
+texto = "FIFO"+"\n"+"Deslocamentos: "+ str(deslocamentosN)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTempoDesloc)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))
+arq.write(texto)
+arq.close()
 
-print "Deslocamentos: ", deslocamentosN
-print "Media Deslocamentos", mediaDesloc
-print "Variancia: ", va 
-print "Desvio: ", math.sqrt(va)
-print "Media Time: ", mediaTempoDesloc
-print "Variancia time: ", vat
-print "Desvio Time: ", math.sqrt(vat)
 
