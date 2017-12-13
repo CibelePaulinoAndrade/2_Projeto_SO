@@ -25,3 +25,12 @@ Tempo medio de deslocamentos: 129.33
 Variancia do Tempo de Deslocamento: 98525.5768687
 Desvio Padrao do Tempo de Deslocamento: 313.887841225
 
+SCAN-C
+Quantidade de deslocamentos: 19765
+Media Deslocamentos: 197.65
+Variancia Deslocamentos: 979716.936869
+Desvio Padrao Deslocamentos: 989.806514865
+Tempo medio de deslocamentos: 197.65
+Variancia do Tempo de Deslocamento: 979716.936869
+Desvio Padrao do Tempo de Deslocamento: 989.806514865
+

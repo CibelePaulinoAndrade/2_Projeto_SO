@@ -55,7 +55,6 @@ def SSF(inicio, time):
 	mediaTempoDesloc = tempodesloc/float(tamentrada)
 
 	va = variancia(deslocamentos, mediaDesloc)
-
 	vat = variancia(deslocamentos, mediaTempoDesloc, time)
 
 	texto = "SSF"+"\n"+"Quantidade de deslocamentos: "+ str(ndesloc)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"
@@ -68,16 +67,7 @@ def SSF(inicio, time):
 	arq.write(texto)
 
 def SCAN(inicio, time):
-	def goDirection(entrada, inicio, limite, passo, time):
-		deslocamento = 0
-		tempo = 0
-		deslocamentos = []
-		for i in range(inicio, limite + passo*(-1), passo):
-			deslocamentos.append(abs(entrada[i] - entrada[i + 1*passo]))
-			deslocamento += deslocamentos[-1]
-			tempo += deslocamentos[-1] * time 	
-		return [deslocamentos, tempo, deslocamento]
-
+	
 	entrada = ler()
 
 	entrada.sort()
@@ -111,7 +101,7 @@ def SCAN(inicio, time):
 		arq.write(texto)
 		texto = "Tempo medio de deslocamentos: "+ str(mediaTime)+"\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
 		arq.write(texto)
-		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\\n\n"
+		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 		arq.write(texto)
 
 	elif maisproximo < inicio:
@@ -142,11 +132,79 @@ def SCAN(inicio, time):
 		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
 		arq.write(texto)
 
+def SCANC(inicio, time):
+
+	entrada = ler()
+
+	entrada.sort()
+	maisproximo = 0
+	for i in range(len(entrada)):
+		if abs(inicio - entrada[i]) < abs(inicio - entrada[maisproximo]):
+			maisproximo = i
+
+	if maisproximo > inicio:
+		total = entrada[maisproximo] - inicio
+		desloclist = [total]
+		totalTime = total*time
+		timelist = [totalTime]
+		ida = goDirection(entrada, maisproximo, len(entrada), 1, time)
+		volta = goDirection(entrada, 0, maisproximo, 1, time)
+		totalTime += ida[1] +  abs(entrada[len(entrada)-1] - entrada[0])*time + volta[1]
+		total += ida[2] + abs(entrada[len(entrada)-1] - entrada[0])+ volta[2]
+		
+		mediaDesloc = total/len(entrada)
+		mediaTime = totalTime/len(entrada)
+
+		desloclist += ida[0] + [abs(entrada[len(entrada)-1] - entrada[0])] + volta[0]
+		va = variancia(desloclist, mediaDesloc)
+
+		timelist += ida[0] + [abs(entrada[len(entrada)-1] - entrada[0])*time] + volta[0]
+		vat = variancia(timelist, mediaTime, time)
+
+		texto = "SCAN-C"+"\n"+"Quantidade de deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"
+		arq.write(texto)
+		texto = "Variancia Deslocamentos: "+ str(va)+"\n" + "Desvio Padrao Deslocamentos: "+ str(math.sqrt(va))+"\n"
+		arq.write(texto)
+		texto = "Tempo medio de deslocamentos: "+ str(mediaTime)+"\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
+		arq.write(texto)
+		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
+		arq.write(texto)
+
+	elif maisproximo < inicio:
+		total = inicio - entrada[maisproximo]
+		desloclist = [total]
+		totalTime = total*time
+		timelist = [totalTime]
+		ida = goDirection(entrada, maisproximo, -1, -1, time)
+		volta = goDirection(entrada, len(entrada)-1, maisproximo, -1, time)
+		totalTime += ida[1] + abs(entrada[len(entrada)-1] - entrada[0])*time + volta[1]
+		total += ida[2] + abs(entrada[len(entrada)-1] - entrada[0])+ volta[2]
+
+		mediaDesloc = total/float(len(entrada))
+		mediaTime = totalTime/float(len(entrada))
+
+		desloclist += ida[0] + [abs(entrada[len(entrada)-1] - entrada[0])]+volta[0]
+		va = variancia(desloclist, mediaDesloc)
+
+		timelist += ida[0] + [abs(entrada[len(entrada)-1] - entrada[0])*time]+ volta[0]
+		vat = variancia(timelist, mediaTime, time)
+
+		
+		texto = "SCAN-C"+"\n"+"Quantidade de deslocamentos: "+ str(total)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"
+		arq.write(texto)
+		texto = "Variancia Deslocamentos: "+ str(va)+"\n" + "Desvio Padrao Deslocamentos: "+ str(math.sqrt(va))+"\n"
+		arq.write(texto)
+		texto = "Tempo medio de deslocamentos: "+ str(mediaTime)+"\n"+ "Variancia do Tempo de Deslocamento: "+ str(vat)+"\n" 
+		arq.write(texto)
+		texto = "Desvio Padrao do Tempo de Deslocamento: "+ str(math.sqrt(vat))+"\n\n"
+		arq.write(texto)
+
 inicio = int(input("inicio: "))
 time = int(input("time: "))
 
 FIFO(inicio, time)
 SSF(inicio, time)
 SCAN(inicio, time)
+SCANC(inicio, time)
 
 arq.close()

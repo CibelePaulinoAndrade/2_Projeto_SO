@@ -20,3 +20,13 @@ def variancia(vetor, media, mult=1):
 	for i in vetor:
 		sumVariancia += (int(i)*mult - media)**2
 	return sumVariancia/(len(vetor) - 1) 
+	
+def goDirection(entrada, inicio, limite, passo, time):
+	deslocamento = 0
+	tempo = 0
+	deslocamentos = []
+	for i in range(inicio, limite + passo*(-1), passo):
+		deslocamentos.append(abs(entrada[i] - entrada[i + 1*passo]))
+		deslocamento += deslocamentos[-1]
+		tempo += deslocamentos[-1] * time 	
+	return [deslocamentos, tempo, deslocamento]

@@ -1,15 +1,6 @@
 import math
 from general import *
 arq = open('testealg.txt', 'w')
-def goDirection(entrada, inicio, limite, passo, time):
-	deslocamento = 0
-	tempo = 0
-	deslocamentos = []
-	for i in range(inicio, limite + passo*(-1), passo):
-		deslocamentos.append(abs(entrada[i] - entrada[i + 1*passo]))
-		deslocamento += deslocamentos[-1]
-		tempo += deslocamentos[-1] * time 	
-	return [deslocamentos, tempo, deslocamento]
 
 
 inicio = int(input("inicio: "))
@@ -47,14 +38,7 @@ if maisproximo > inicio:
 	arq.write(texto)
 	arq.close()
 
-	##print("desloc:" , total)
-	##print("time desloc: ", totalTime)
-	##print("media desloc: ", mediaDesloc)
-	##print("media tempo: ", mediaTime)
-	##print("variancia: ", va)
-	##print("desvio: ", math.sqrt(va))
-	##print("variancia time: ", vat)
-	##print("desvio time: ", math.sqrt(vat))
+
 elif maisproximo < inicio:
 	total = inicio - entrada[maisproximo]
 	desloclist = [total]
@@ -79,11 +63,5 @@ elif maisproximo < inicio:
 
 	arq.write(texto)
 	arq.close()
-	##print "desloc:" , total 
-	##print "time desloc: ", totalTime
-	##print "media desloc: ", mediaDesloc
-	##print "media tempo: ", mediaTime
-	##print "variancia: ", va
-	##print "desvio: ", math.sqrt(va)
-	##print "variancia time: ", vat
-	##print "desvio time: ", math.sqrt(vat)
+
+	
