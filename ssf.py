@@ -28,10 +28,10 @@ va = variancia(deslocamentos, mediaDesloc)
 
 vat = variancia(deslocamentos, mediaTempoDesloc, time)
 
-print("Desloc: ", ndesloc)
-print("Media Desloc", mediaDesloc)
-print("Media time desloc", mediaTempoDesloc)
-print("Variancia", va)
-print("Desvio", math.sqrt(va))
-print("VarianciaTIme ", vat)
-print("Desvio Time", math.sqrt(vat))
+print "Desloc: ", ndesloc 
+print "Media Desloc", mediaDesloc 
+print "Media time desloc", mediaTempoDesloc
+print "Variancia", va
+print "Desvio", math.sqrt(va)
+print "VarianciaTIme ", vat
+print "Desvio Time", math.sqrt(vat)

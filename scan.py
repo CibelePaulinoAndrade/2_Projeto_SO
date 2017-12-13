@@ -69,11 +69,11 @@ elif maisproximo < inicio:
 	timelist += ida[0] + [abs(entrada[0] - entrada[maisproximo + 1])*time]+ volta[0]
 	vat = variancia(timelist, mediaTime, time)
 
-	print("desloc:" , total)
-	print("time desloc: ", totalTime)
-	print("media desloc: ", mediaDesloc)
-	print("media tempo: ", mediaTime)
-	print("variancia: ", va)
-	print("desvio: ", math.sqrt(va))	
-	print("variancia time: ", vat)
-	print("desvio time: ", math.sqrt(vat))
+	print "desloc:" , total 
+	print "time desloc: ", totalTime
+	print "media desloc: ", mediaDesloc
+	print "media tempo: ", mediaTime
+	print "variancia: ", va
+	print "desvio: ", math.sqrt(va)
+	print "variancia time: ", vat
+	print "desvio time: ", math.sqrt(vat)
