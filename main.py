@@ -3,11 +3,9 @@ from general import *
 
 arq = open('testealg.txt', 'w')
 
-def FIFO(inicio, time, entrada):
+def FIFO(inicio, time):
 
-	##inicio = int(input("inicio: "))
-	##time = int(input("time: "))
-	##entrada = ler()
+	entrada = ler()
 
 	deslocamentos = [abs(inicio - int(entrada[0]))] 
 	deslocamentosN = deslocamentos[-1]
@@ -27,11 +25,9 @@ def FIFO(inicio, time, entrada):
 	texto = "FIFO"+"\n"+"Deslocamentos: "+ str(deslocamentosN)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTempoDesloc)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))+"\n\n"
 	arq.write(texto)
 
-def SSF(inicio, time, entradassf):
+def SSF(inicio, time):
 
-	#inicio = int(input("inicio: "))
-	#time = int(input("time: "))
-	#entrada = [inicio] + ler()
+	entrada = [inicio] + ler()
 
 	i = 0
 	ni = 0
@@ -59,7 +55,7 @@ def SSF(inicio, time, entradassf):
 	texto = "SSF"+"\n"+"Deslocamentos: "+ str(ndesloc)+"\n"+"Media Deslocamentos: "+ str(mediaDesloc)+"\n"+"Variancia: "+ str(va)+"\n" + "Desvio: "+ str(math.sqrt(va))+"\n"+ "Media Time: "+ str(mediaTempoDesloc)+"\n"+ "Variancia Time: "+ str(vat)+"\n" +"Desvio Time: "+ str(math.sqrt(vat))+"\n\n"
 	arq.write(texto)
 
-def SCAN():
+def SCAN(inicio, time):
 	def goDirection(entrada, inicio, limite, passo, time):
 		deslocamento = 0
 		tempo = 0
@@ -70,9 +66,6 @@ def SCAN():
 			tempo += deslocamentos[-1] * time 	
 		return [deslocamentos, tempo, deslocamento]
 
-
-	inicio = int(input("inicio: "))
-	time = int(input("time: "))
 	entrada = ler()
 
 	entrada.sort()
@@ -127,9 +120,9 @@ def SCAN():
 
 inicio = int(input("inicio: "))
 time = int(input("time: "))
-entrada = ler()
-entradassf = [inicio] + ler()
 
-FIFO(inicio, time, entrada)
-SSF(inicio, time, entradassf)
-SCAN()
+FIFO(inicio, time)
+SSF(inicio, time)
+SCAN(inicio, time)
+
+arq.close()

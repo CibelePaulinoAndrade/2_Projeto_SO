@@ -8,13 +8,13 @@ Variancia Time: 5943095
 Desvio Time: 2437.84638564
 
 SSF
-Deslocamentos: 11103
-Media Deslocamentos: 112.151515152
-Variancia: 20012.1910946
-Desvio: 141.464451699
-Media Time: 112.151515152
-Variancia Time: 20012.1910946
-Desvio Time: 141.464451699
+Deslocamentos: 12933
+Media Deslocamentos: 129.33
+Variancia: 98525.5768687
+Desvio: 313.887841225
+Media Time: 129.33
+Variancia Time: 98525.5768687
+Desvio Time: 313.887841225
 
 SCAN
 Deslocamentos: 12933
